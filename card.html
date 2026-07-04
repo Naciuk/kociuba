@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dowód Osobisty</title>
+    <style>
+        body { background: #111; color: white; font-family: Arial, sans-serif; text-align: center; padding: 15px; }
+        .card {
+            max-width: 380px;
+            margin: 20px auto;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border: 4px solid #ffd700;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+        }
+        .header { color: #ffd700; font-size: 22px; margin: 10px 0; }
+        .photo {
+            width: 110px; height: 140px; background: #222; margin: 10px auto;
+            border: 2px solid #ffd700; border-radius: 8px;
+            display: flex; align-items: center; justify-content: center; font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">RZECZPOSPOLITA POLSKA</div>
+        <div class="header">DOWÓD OSOBISTY</div>
+        
+        <div class="photo">🪪</div>
+        
+        <h2 id="imieNazwisko">Jan Kowalski</h2>
+        <p><strong>Data urodzenia:</strong> <span id="dataUrodzenia">01.01.1985</span></p>
+        <p><strong>PESEL:</strong> <span id="pesel">85010112345</span></p>
+        <p><strong>Numer dokumentu:</strong> <span id="nrDowodu">ABC123456</span></p>
+        
+        <p style="margin-top:25px; font-size:14px; color:#aaa;">Wygenerowano losowo • Tylko do celów żartobliwych</p>
+        
+        <button onclick="history.back()" style="margin-top:20px; padding:12px 25px;">← Powrót</button>
+    </div>
+
+    <script>
+        const data = JSON.parse(localStorage.getItem('lastFakeID') || '{}');
+        if (data.imie) {
+            document.getElementById('imieNazwisko').textContent = data.imie + " " + data.nazwisko;
+            document.getElementById('dataUrodzenia').textContent = data.dataUrodzenia;
+            document.getElementById('pesel').textContent = data.pesel;
+            document.getElementById('nrDowodu').textContent = data.nrDowodu;
+        }
+    </script>
+</body>
+</html>
